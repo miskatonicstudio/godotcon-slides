@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvcjbavt2q6s7"]
+
+[ext_resource type="PackedScene" uid="uid://8s1do26q3wwt" path="res://templates/slide.tscn" id="1_m4ytw"]
+[ext_resource type="PackedScene" uid="uid://dhb5fkuo3rhj4" path="res://templates/background_godot_4.tscn" id="2_1doji"]
+[ext_resource type="PackedScene" uid="uid://0pj3ofit1ivg" path="res://templates/code_edit.tscn" id="2_k456p"]
+[ext_resource type="PackedScene" uid="uid://dwtwi6xvh2psr" path="res://templates/arrow.tscn" id="3_hxqns"]
+
+[node name="Types" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slide" parent="." instance=ExtResource("1_m4ytw")]
+layout_mode = 1
+
+[node name="Label" parent="Slide/VBoxContainer/TopBar" index="0"]
+text = "Type hints"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Slide/VBoxContainer/Contents" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -200.0
+offset_right = 288.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="BackgroundGodot5" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("2_1doji")]
+custom_minimum_size = Vector2(850, 600)
+layout_mode = 2
+
+[node name="CodeEdit" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot5" instance=ExtResource("2_k456p")]
+custom_minimum_size = Vector2(850, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -300.0
+offset_right = 425.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "func _ready():
+	print(foo(123))
+	print(foo(null))
+
+
+func foo(arg) -> String:
+	return arg"
+
+[node name="Arrow" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("3_hxqns")]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 0.470588, 0.419608, 1)
+
+[node name="ErrorMessage" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer"]
+custom_minimum_size = Vector2(850, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.470588, 0.419608, 1)
+theme_override_font_sizes/font_size = 40
+text = "Trying to return value of type \"int\" from a function which the return type is \"String\".
+
+Trying to return value of type \"Nil\" from a function which the return type is \"String\"."
+autowrap_mode = 2
+
+[editable path="Slide"]

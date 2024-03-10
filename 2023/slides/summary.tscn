@@ -1,0 +1,123 @@
+[gd_scene load_steps=11 format=3 uid="uid://bq18teflmfnes"]
+
+[ext_resource type="PackedScene" uid="uid://8s1do26q3wwt" path="res://templates/slide.tscn" id="1_5dewe"]
+[ext_resource type="Script" path="res://slides/summary.gd" id="1_f5xio"]
+[ext_resource type="Texture2D" uid="uid://c050n7vktugbs" path="res://slides/media/godot_lightyear6.png" id="2_ntkb0"]
+[ext_resource type="PackedScene" uid="uid://cjwgxkbh5fg81" path="res://templates/background_godot_3.tscn" id="3_g1x3m"]
+[ext_resource type="PackedScene" uid="uid://dwtwi6xvh2psr" path="res://templates/arrow.tscn" id="4_ifupy"]
+[ext_resource type="Texture2D" uid="uid://bb2fd6jv5hs3h" path="res://slides/media/god_ot_bust.png" id="5_sl0so"]
+[ext_resource type="PackedScene" uid="uid://dhb5fkuo3rhj4" path="res://templates/background_godot_4.tscn" id="6_q5h0g"]
+
+[sub_resource type="Animation" id="Animation_70whd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/TextureRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xmmrj"]
+resource_name = "reveal"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/TextureRect2:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6iuud"]
+_data = {
+"RESET": SubResource("Animation_70whd"),
+"reveal": SubResource("Animation_xmmrj")
+}
+
+[node name="Summary" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f5xio")
+
+[node name="Slide" parent="." instance=ExtResource("1_5dewe")]
+layout_mode = 1
+
+[node name="Label" parent="Slide/VBoxContainer/TopBar" index="0"]
+text = "Summary"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Slide/VBoxContainer/Contents" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -637.5
+offset_top = -350.0
+offset_right = 637.5
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Slide/VBoxContainer/Contents/HBoxContainer"]
+custom_minimum_size = Vector2(0, 800)
+layout_mode = 2
+texture = ExtResource("2_ntkb0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BackgroundGodot3" parent="Slide/VBoxContainer/Contents/HBoxContainer/TextureRect" instance=ExtResource("3_g1x3m")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Arrow" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("4_ifupy")]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Slide/VBoxContainer/Contents/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_sl0so")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BackgroundGodot4" parent="Slide/VBoxContainer/Contents/HBoxContainer/TextureRect2" instance=ExtResource("6_q5h0g")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slide/VBoxContainer/Contents" index="1"]
+autoplay = "reveal"
+libraries = {
+"": SubResource("AnimationLibrary_6iuud")
+}
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+
+[editable path="Slide"]

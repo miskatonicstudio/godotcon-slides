@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=3 uid="uid://cq5omupkpe4gk"]
+
+[ext_resource type="PackedScene" uid="uid://8s1do26q3wwt" path="res://templates/slide.tscn" id="1_2ndf2"]
+[ext_resource type="PackedScene" uid="uid://0pj3ofit1ivg" path="res://templates/code_edit.tscn" id="2_hrfee"]
+[ext_resource type="PackedScene" uid="uid://cjwgxkbh5fg81" path="res://templates/background_godot_3.tscn" id="2_ww3bx"]
+[ext_resource type="PackedScene" uid="uid://dwtwi6xvh2psr" path="res://templates/arrow.tscn" id="3_dv371"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brmgr"]
+bg_color = Color(0.67451, 0.87451, 0.772549, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.67451, 0.87451, 0.772549, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[node name="TypesEditorFail" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slide" parent="." instance=ExtResource("1_2ndf2")]
+layout_mode = 1
+
+[node name="Label" parent="Slide/VBoxContainer/TopBar" index="0"]
+text = "Type hints"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Slide/VBoxContainer/Contents" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -200.0
+offset_right = 304.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="BackgroundGodot3" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("2_ww3bx")]
+custom_minimum_size = Vector2(850, 600)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_brmgr")
+
+[node name="CodeEdit" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot3" instance=ExtResource("2_hrfee")]
+custom_minimum_size = Vector2(850, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -300.0
+offset_right = 425.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "func _ready():
+	print(foo(123))
+	print(foo(null))
+
+
+func foo(arg: String) -> String:
+	return arg"
+
+[node name="Arrow" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("3_dv371")]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 0.470588, 0.419608, 1)
+
+[node name="ErrorMessage" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer"]
+custom_minimum_size = Vector2(850, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.470588, 0.419608, 1)
+theme_override_font_sizes/font_size = 35
+text = "v3.5.2:
+Parse Error: At \"foo()\" call, argument 1. The passed argument's type (null) doesn't match the function's expected argument type (String).
+
+v4.1.1:
+Cannot pass a value of type \"null\" as \"String\".
+Invalid argument for \"foo()\" function: argument 1 should be \"String\" but is \"null\"."
+autowrap_mode = 2
+
+[editable path="Slide"]

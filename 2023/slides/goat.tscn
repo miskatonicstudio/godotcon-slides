@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=3 uid="uid://isbxq1hhulht"]
+
+[ext_resource type="PackedScene" uid="uid://8s1do26q3wwt" path="res://templates/slide.tscn" id="1_cliah"]
+[ext_resource type="Script" path="res://slides/goat.gd" id="1_moooi"]
+[ext_resource type="VideoStream" path="res://slides/media/goat-demo-game.ogv" id="3_6ibjf"]
+[ext_resource type="Texture2D" uid="uid://di88180gleh4i" path="res://slides/media/logo_goat.png" id="4_yc40c"]
+
+[node name="Goat" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_moooi")
+
+[node name="Slide" parent="." instance=ExtResource("1_cliah")]
+layout_mode = 1
+
+[node name="Label" parent="Slide/VBoxContainer/TopBar" index="0"]
+text = "GOAT"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Slide/VBoxContainer/Contents" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -514.5
+offset_top = -304.0
+offset_right = 514.5
+offset_bottom = 304.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Slide/VBoxContainer/Contents/HBoxContainer"]
+layout_mode = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Slide/VBoxContainer/Contents/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stream = ExtResource("3_6ibjf")
+autoplay = true
+
+[node name="Logo" type="TextureRect" parent="Slide/VBoxContainer/Contents/HBoxContainer/VBoxContainer2/VideoStreamPlayer"]
+show_behind_parent = true
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -334.0
+offset_top = -150.0
+offset_right = 334.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_yc40c")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.129458, 0.148989, 0.180255, 1)
+theme_override_font_sizes/font_size = 50
+text = "https://github.com/miskatonicstudio/goat"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.129458, 0.148989, 0.180255, 1)
+theme_override_font_sizes/font_size = 50
+text = "~6K LOC
+v3.4.4 ➡ v4.0.3 ➡ v4.1.1"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Slide/VBoxContainer/Contents/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Label2" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.129458, 0.148989, 0.180255, 1)
+theme_override_font_sizes/font_size = 60
+text = "v3.4.4 ➡ v4.0.3 ➡ v4.1.1"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+
+[editable path="Slide"]

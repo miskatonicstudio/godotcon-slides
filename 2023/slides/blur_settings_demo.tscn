@@ -1,0 +1,247 @@
+[gd_scene load_steps=15 format=3 uid="uid://blvn3o61b36ow"]
+
+[ext_resource type="Script" path="res://slides/blur_settings_demo.gd" id="1_dpdef"]
+[ext_resource type="PackedScene" uid="uid://8s1do26q3wwt" path="res://templates/slide.tscn" id="1_nrdb0"]
+[ext_resource type="PackedScene" uid="uid://cjwgxkbh5fg81" path="res://templates/background_godot_3.tscn" id="3_2y31j"]
+[ext_resource type="PackedScene" uid="uid://dwtwi6xvh2psr" path="res://templates/arrow.tscn" id="4_aikfp"]
+[ext_resource type="Texture2D" uid="uid://bwllwfw6lxinc" path="res://slides/media/godot_3_blur_demo_low.png" id="4_qfa78"]
+[ext_resource type="Texture2D" uid="uid://if4uexxcl8o0" path="res://slides/media/godot_3_blur_demo_medium.png" id="5_lgdrd"]
+[ext_resource type="Texture2D" uid="uid://csnhrbuy1nvye" path="res://slides/media/godot_3_blur_demo_high.png" id="6_i3kjp"]
+[ext_resource type="PackedScene" uid="uid://dhb5fkuo3rhj4" path="res://templates/background_godot_4.tscn" id="6_lw5lr"]
+
+[sub_resource type="Animation" id="Animation_vn5wp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blur3Low:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blur3Medium:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Blur3High:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_rnm42"]
+resource_name = "slide_show"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blur3Low:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blur3Medium:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Blur3High:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_puf2g"]
+_data = {
+"RESET": SubResource("Animation_vn5wp"),
+"slide_show": SubResource("Animation_rnm42")
+}
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_2iv33"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 0.01
+dof_blur_far_transition = 0.01
+dof_blur_amount = 0.29
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1x4a"]
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_f1s2g"]
+
+[node name="BlurSettingsDemo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dpdef")
+
+[node name="Slide" parent="." instance=ExtResource("1_nrdb0")]
+layout_mode = 1
+
+[node name="Label" parent="Slide/VBoxContainer/TopBar" index="0"]
+text = "Blur"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Slide/VBoxContainer/Contents" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="BackgroundGodot3" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("3_2y31j")]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Blur3Low" type="TextureRect" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_qfa78")
+
+[node name="Blur3Medium" type="TextureRect" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_lgdrd")
+
+[node name="Blur3High" type="TextureRect" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_i3kjp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot3"]
+autoplay = "slide_show"
+libraries = {
+"": SubResource("AnimationLibrary_puf2g")
+}
+
+[node name="Arrow" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("4_aikfp")]
+layout_mode = 2
+
+[node name="BackgroundGodot4" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("6_lw5lr")]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="SubViewport" type="SubViewport" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot4/SubViewportContainer"]
+own_world_3d = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot4/SubViewportContainer/SubViewport"]
+
+[node name="Camera3D" type="Camera3D" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot4/SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+attributes = SubResource("CameraAttributesPractical_2iv33")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot4/SubViewportContainer/SubViewport/Node3D"]
+material_override = SubResource("StandardMaterial3D_u1x4a")
+mesh = SubResource("QuadMesh_f1s2g")
+
+[node name="TimerShape" type="Timer" parent="."]
+autostart = true
+
+[node name="TimerQuality" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="TimerShape" to="." method="_on_timer_shape_timeout"]
+[connection signal="timeout" from="TimerQuality" to="." method="_on_timer_quality_timeout"]
+
+[editable path="Slide"]

@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj1hvpnvtgluu"]
+
+[ext_resource type="PackedScene" uid="uid://8s1do26q3wwt" path="res://templates/slide.tscn" id="1_ofi7o"]
+[ext_resource type="PackedScene" uid="uid://cjwgxkbh5fg81" path="res://templates/background_godot_3.tscn" id="2_dutwp"]
+[ext_resource type="PackedScene" uid="uid://0pj3ofit1ivg" path="res://templates/code_edit.tscn" id="3_vdxfl"]
+[ext_resource type="PackedScene" uid="uid://dwtwi6xvh2psr" path="res://templates/arrow.tscn" id="4_tbims"]
+[ext_resource type="PackedScene" uid="uid://dhb5fkuo3rhj4" path="res://templates/background_godot_4.tscn" id="5_ys4hs"]
+
+[node name="Tweens" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slide" parent="." instance=ExtResource("1_ofi7o")]
+layout_mode = 1
+
+[node name="Label" parent="Slide/VBoxContainer/TopBar" index="0"]
+text = "Tween"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Slide/VBoxContainer/Contents" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -803.5
+offset_top = -325.0
+offset_right = 803.5
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="BackgroundGodot3" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("2_dutwp")]
+custom_minimum_size = Vector2(750, 650)
+layout_mode = 2
+
+[node name="CodeEdit" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot3" instance=ExtResource("3_vdxfl")]
+custom_minimum_size = Vector2(750, 650)
+layout_mode = 2
+offset_left = 4.0
+offset_right = 504.0
+offset_bottom = 400.0
+theme_override_font_sizes/font_size = 35
+text = "$Tween.interpolate_property(
+	color_rect, \"color\", null, Color.red, 1,
+	Tween.TRANS_SINE,
+	Tween.EASE_IN_OUT
+)
+$Tween.interpolate_property(
+	color_rect, \"rect_rotation\", null, 5, 2,
+	Tween.TRANS_SINE, 
+	Tween.EASE_IN_OUT
+)
+$Tween.start()"
+
+[node name="Arrow" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("4_tbims")]
+layout_mode = 2
+
+[node name="BackgroundGodot4" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("5_ys4hs")]
+custom_minimum_size = Vector2(750, 650)
+layout_mode = 2
+
+[node name="CodeEdit2" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot4" instance=ExtResource("3_vdxfl")]
+custom_minimum_size = Vector2(750, 650)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+text = "var tween = create_tween()\\
+	.set_ease(Tween.EASE_IN_OUT)\\
+	.set_trans(Tween.TRANS_SINE)
+tween.tween_property(
+	color_rect, \"color\", Color.RED, 1
+)
+tween.tween_property(
+	color_rect, \"rotation\", 5, 2
+)"
+
+[editable path="Slide"]

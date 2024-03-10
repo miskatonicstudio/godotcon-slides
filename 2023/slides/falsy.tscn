@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8qtnvd2hvuxb"]
+
+[ext_resource type="PackedScene" uid="uid://8s1do26q3wwt" path="res://templates/slide.tscn" id="1_paxmm"]
+[ext_resource type="PackedScene" uid="uid://dhb5fkuo3rhj4" path="res://templates/background_godot_4.tscn" id="2_ef6lu"]
+[ext_resource type="PackedScene" uid="uid://0pj3ofit1ivg" path="res://templates/code_edit.tscn" id="2_ni60r"]
+[ext_resource type="PackedScene" uid="uid://dwtwi6xvh2psr" path="res://templates/arrow.tscn" id="3_j6diw"]
+
+[node name="Falsy" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slide" parent="." instance=ExtResource("1_paxmm")]
+layout_mode = 1
+
+[node name="Label" parent="Slide/VBoxContainer/TopBar" index="0"]
+text = "if not var ..."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Slide/VBoxContainer/Contents" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="BackgroundGodot4" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("2_ef6lu")]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="CodeEdit" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot4" instance=ExtResource("2_ni60r")]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "func _ready():
+	var s = \"\"
+	if not s:
+		print(\"s\")"
+
+[node name="Arrow" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("3_j6diw")]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 0.470588, 0.419608, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Slide/VBoxContainer/Contents/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="ErrorMessage" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.470588, 0.419608, 1)
+theme_override_font_sizes/font_size = 40
+text = "Invalid operands 'String' and 'Nil' in operator 'not'."
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.242786, 0.50219, 0.662913, 1)
+theme_override_font_sizes/font_size = 40
+text = "(only in v4.0.3, fixed in v4.1.1)"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.242786, 0.50219, 0.662913, 1)
+theme_override_font_sizes/font_size = 40
+text = "(`if s:` works)"
+autowrap_mode = 2
+
+[editable path="Slide"]

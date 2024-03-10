@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6m7lwnhs82nc"]
+
+[ext_resource type="PackedScene" uid="uid://8s1do26q3wwt" path="res://templates/slide.tscn" id="1_fs5qr"]
+[ext_resource type="PackedScene" uid="uid://cjwgxkbh5fg81" path="res://templates/background_godot_3.tscn" id="2_6ra4l"]
+[ext_resource type="PackedScene" uid="uid://0pj3ofit1ivg" path="res://templates/code_edit.tscn" id="2_cq2or"]
+[ext_resource type="PackedScene" uid="uid://dwtwi6xvh2psr" path="res://templates/arrow.tscn" id="3_g175y"]
+
+[node name="TypesNoError" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slide" parent="." instance=ExtResource("1_fs5qr")]
+layout_mode = 1
+
+[node name="Label" parent="Slide/VBoxContainer/TopBar" index="0"]
+text = "Type hints"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Slide/VBoxContainer/Contents" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -326.5
+offset_top = -200.0
+offset_right = 326.5
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="BackgroundGodot3" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("2_6ra4l")]
+custom_minimum_size = Vector2(850, 600)
+layout_mode = 2
+
+[node name="CodeEdit" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot3" instance=ExtResource("2_cq2or")]
+custom_minimum_size = Vector2(850, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -300.0
+offset_right = 425.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "func _ready():
+	print(foo(123))
+	print(foo(null))
+
+
+func foo(arg) -> String:
+	return arg"
+
+[node name="Arrow" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("3_g175y")]
+layout_mode = 2
+
+[node name="Output" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer"]
+custom_minimum_size = Vector2(850, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.211765, 0.239216, 0.290196, 1)
+theme_override_font_sizes/font_size = 40
+text = "123
+Null"
+
+[editable path="Slide"]

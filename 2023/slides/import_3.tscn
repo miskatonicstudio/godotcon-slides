@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1g570bc5hyii"]
+
+[ext_resource type="PackedScene" uid="uid://8s1do26q3wwt" path="res://templates/slide.tscn" id="1_kslqx"]
+[ext_resource type="Script" path="res://slides/import_3.gd" id="1_uj7jj"]
+[ext_resource type="Texture2D" uid="uid://bxjqf8lkcu6lg" path="res://slides/media/import_3.jpg" id="2_6ox7c"]
+[ext_resource type="VideoStream" path="res://slides/media/goat-plugin-challenging.ogv" id="3_7re1a"]
+[ext_resource type="PackedScene" uid="uid://dhb5fkuo3rhj4" path="res://templates/background_godot_4.tscn" id="3_thglu"]
+
+[node name="Import3" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uj7jj")
+
+[node name="Slide" parent="." instance=ExtResource("1_kslqx")]
+layout_mode = 1
+
+[node name="Label" parent="Slide/VBoxContainer/TopBar" index="0"]
+text = "Conversion"
+
+[node name="TextureRect" type="TextureRect" parent="Slide/VBoxContainer/Contents" index="0"]
+visible = false
+custom_minimum_size = Vector2(1100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = -200.5
+offset_right = 310.0
+offset_bottom = 200.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6ox7c")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Slide/VBoxContainer/Contents" index="1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -328.0
+offset_right = 576.0
+offset_bottom = 328.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("3_7re1a")
+autoplay = true
+
+[node name="BackgroundGodot4" parent="Slide/VBoxContainer/Contents/VideoStreamPlayer" instance=ExtResource("3_thglu")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="finished" from="Slide/VBoxContainer/Contents/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+
+[editable path="Slide"]

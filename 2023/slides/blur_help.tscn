@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjknqdoipcs7y"]
+
+[ext_resource type="PackedScene" uid="uid://8s1do26q3wwt" path="res://templates/slide.tscn" id="1_reo40"]
+[ext_resource type="Texture2D" uid="uid://bmh75oesh36ol" path="res://slides/media/godot_4_blur_help.png" id="2_m10pi"]
+[ext_resource type="PackedScene" uid="uid://dhb5fkuo3rhj4" path="res://templates/background_godot_4.tscn" id="3_8qkce"]
+
+[node name="BlurHelp" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slide" parent="." instance=ExtResource("1_reo40")]
+layout_mode = 1
+
+[node name="Label" parent="Slide/VBoxContainer/TopBar" index="0"]
+text = "Blur"
+
+[node name="TextureRect" type="TextureRect" parent="Slide/VBoxContainer/Contents" index="0"]
+custom_minimum_size = Vector2(0, 800)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -284.5
+offset_top = -151.5
+offset_right = 284.5
+offset_bottom = 151.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_m10pi")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BackgroundGodot4" parent="Slide/VBoxContainer/Contents/TextureRect" instance=ExtResource("3_8qkce")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[editable path="Slide"]

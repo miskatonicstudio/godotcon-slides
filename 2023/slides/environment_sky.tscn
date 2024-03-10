@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbhcnpd54jf42"]
+
+[ext_resource type="PackedScene" uid="uid://8s1do26q3wwt" path="res://templates/slide.tscn" id="1_qlnip"]
+[ext_resource type="PackedScene" uid="uid://cjwgxkbh5fg81" path="res://templates/background_godot_3.tscn" id="2_mensj"]
+[ext_resource type="Texture2D" uid="uid://dptuyqhgxccht" path="res://slides/media/env_v3_sky_editor.png" id="3_uxsne"]
+[ext_resource type="Texture2D" uid="uid://boferbb2kowq2" path="res://slides/media/env_v3_sky.png" id="4_3lae6"]
+[ext_resource type="PackedScene" uid="uid://dwtwi6xvh2psr" path="res://templates/arrow.tscn" id="5_snw5w"]
+[ext_resource type="PackedScene" uid="uid://dhb5fkuo3rhj4" path="res://templates/background_godot_4.tscn" id="6_w7d4l"]
+[ext_resource type="Texture2D" uid="uid://cq0856hycvqkt" path="res://slides/media/env_v4_sky_editor.png" id="7_nslua"]
+[ext_resource type="Texture2D" uid="uid://dpb56gil6lv1n" path="res://slides/media/env_v4_sky.png" id="8_ad32j"]
+
+[node name="EnvironmentSky" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slide" parent="." instance=ExtResource("1_qlnip")]
+layout_mode = 1
+
+[node name="Label" parent="Slide/VBoxContainer/TopBar" index="0"]
+text = "Environment"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Slide/VBoxContainer/Contents" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="BackgroundGodot3" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("2_mensj")]
+custom_minimum_size = Vector2(702, 512)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -351.0
+offset_top = -256.0
+offset_right = 351.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="Editor" type="TextureRect" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot3/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_uxsne")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot3/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_3lae6")
+
+[node name="Arrow" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("5_snw5w")]
+layout_mode = 2
+
+[node name="BackgroundGodot4" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("6_w7d4l")]
+custom_minimum_size = Vector2(762, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -381.0
+offset_top = -256.0
+offset_right = 381.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="Editor" type="TextureRect" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot4/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_nslua")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot4/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_ad32j")
+
+[editable path="Slide"]

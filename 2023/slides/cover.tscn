@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk37dof4ud3kd"]
+
+[ext_resource type="Texture2D" uid="uid://bj7jmpoc5fj8n" path="res://slides/media/godotcon_2023_commercial_glow.png" id="1_w03xq"]
+[ext_resource type="PackedScene" uid="uid://dfh83oxmvg72u" path="res://templates/label.tscn" id="2_4cswk"]
+
+[sub_resource type="Gradient" id="Gradient_sofla"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4lsfq"]
+gradient = SubResource("Gradient_sofla")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="Cover" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_w03xq")
+
+[node name="Dim" type="TextureRect" parent="TextureRect"]
+self_modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_4lsfq")
+
+[node name="TopText" parent="." instance=ExtResource("2_4cswk")]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 91.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 120
+text = "The journey to Godot 4"
+
+[node name="BottomText" parent="." instance=ExtResource("2_4cswk")]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -91.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "What can you expect?"
+vertical_alignment = 0

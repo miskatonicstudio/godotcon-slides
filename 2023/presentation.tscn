@@ -1,0 +1,120 @@
+[gd_scene load_steps=29 format=3 uid="uid://jpqjsip6x4at"]
+
+[ext_resource type="Script" path="res://presentation.gd" id="1_hbvh7"]
+[ext_resource type="PackedScene" uid="uid://bk37dof4ud3kd" path="res://slides/cover.tscn" id="2_njief"]
+[ext_resource type="PackedScene" uid="uid://b87dx7bonf3vj" path="res://slides/new_names.tscn" id="3_2qar7"]
+[ext_resource type="PackedScene" uid="uid://dwllycfhr3xst" path="res://slides/miskatonic_studio.tscn" id="3_ntea6"]
+[ext_resource type="PackedScene" uid="uid://isbxq1hhulht" path="res://slides/goat.tscn" id="4_db634"]
+[ext_resource type="PackedScene" uid="uid://b2bxjbs7ocor2" path="res://slides/default_size.tscn" id="4_uhq61"]
+[ext_resource type="PackedScene" uid="uid://2ystfcfpds7" path="res://slides/import_1.tscn" id="5_8pjay"]
+[ext_resource type="PackedScene" uid="uid://5c6ydirgp7io" path="res://slides/import_2.tscn" id="6_dq4ur"]
+[ext_resource type="PackedScene" uid="uid://dwckjscj0kksm" path="res://slides/blur_settings_goat.tscn" id="6_jsgnn"]
+[ext_resource type="PackedScene" uid="uid://d1g570bc5hyii" path="res://slides/import_3.tscn" id="7_06nu1"]
+[ext_resource type="PackedScene" uid="uid://bn16xf1nuf0gr" path="res://slides/blur_editor.tscn" id="7_fmjjd"]
+[ext_resource type="PackedScene" uid="uid://cjknqdoipcs7y" path="res://slides/blur_help.tscn" id="8_b3ks7"]
+[ext_resource type="PackedScene" uid="uid://c6m7lwnhs82nc" path="res://slides/types_no_error.tscn" id="8_tu0w7"]
+[ext_resource type="PackedScene" uid="uid://blvn3o61b36ow" path="res://slides/blur_settings_demo.tscn" id="9_vcex8"]
+[ext_resource type="PackedScene" uid="uid://cq5omupkpe4gk" path="res://slides/types_editor_fail.tscn" id="9_xgufx"]
+[ext_resource type="PackedScene" uid="uid://bvcjbavt2q6s7" path="res://slides/types.tscn" id="10_b63tf"]
+[ext_resource type="PackedScene" uid="uid://c47d8l4e4rya" path="res://slides/environment_goat.tscn" id="11_c25b6"]
+[ext_resource type="PackedScene" uid="uid://cpnvqnxp8lo1u" path="res://slides/viewport_goat.tscn" id="15_21g1j"]
+[ext_resource type="PackedScene" uid="uid://coco6g5llfgco" path="res://slides/environment.tscn" id="15_itmrv"]
+[ext_resource type="PackedScene" uid="uid://bcdaifbggnu3p" path="res://slides/environment_preview.tscn" id="16_g7yv7"]
+[ext_resource type="PackedScene" uid="uid://r3omvg2aj7al" path="res://slides/viewport_changes.tscn" id="16_k5iqc"]
+[ext_resource type="PackedScene" uid="uid://c83swkfdiwif2" path="res://slides/viewport_bug.tscn" id="17_n8x6b"]
+[ext_resource type="PackedScene" uid="uid://cbhcnpd54jf42" path="res://slides/environment_sky.tscn" id="17_nmxfg"]
+[ext_resource type="PackedScene" uid="uid://dxainabpc6a4" path="res://slides/viewport_inventory.tscn" id="18_klck6"]
+[ext_resource type="PackedScene" uid="uid://cj1hvpnvtgluu" path="res://slides/tweens.tscn" id="19_kkr5v"]
+[ext_resource type="PackedScene" uid="uid://cdkliklc6dm0g" path="res://slides/mesh.tscn" id="24_m08nv"]
+[ext_resource type="PackedScene" uid="uid://bq18teflmfnes" path="res://slides/summary.tscn" id="30_1eeq0"]
+[ext_resource type="PackedScene" uid="uid://btyqu8u2fe52v" path="res://slides/thank_you.tscn" id="31_tslv8"]
+
+[node name="Presentation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hbvh7")
+
+[node name="Cover" parent="." instance=ExtResource("2_njief")]
+layout_mode = 1
+
+[node name="MiskatonicStudio" parent="." instance=ExtResource("3_ntea6")]
+layout_mode = 1
+
+[node name="Goat" parent="." instance=ExtResource("4_db634")]
+layout_mode = 1
+
+[node name="Import1" parent="." instance=ExtResource("5_8pjay")]
+layout_mode = 1
+
+[node name="Import2" parent="." instance=ExtResource("6_dq4ur")]
+layout_mode = 1
+
+[node name="Import3" parent="." instance=ExtResource("7_06nu1")]
+layout_mode = 1
+
+[node name="NewNames" parent="." instance=ExtResource("3_2qar7")]
+layout_mode = 1
+
+[node name="DefaultSize" parent="." instance=ExtResource("4_uhq61")]
+layout_mode = 1
+
+[node name="TypesNoError" parent="." instance=ExtResource("8_tu0w7")]
+layout_mode = 1
+
+[node name="Types" parent="." instance=ExtResource("10_b63tf")]
+layout_mode = 1
+
+[node name="TypesEditorFail" parent="." instance=ExtResource("9_xgufx")]
+layout_mode = 1
+
+[node name="EnvironmentGoat" parent="." instance=ExtResource("11_c25b6")]
+layout_mode = 1
+
+[node name="Environment" parent="." instance=ExtResource("15_itmrv")]
+layout_mode = 1
+
+[node name="EnvironmentPreview" parent="." instance=ExtResource("16_g7yv7")]
+layout_mode = 1
+
+[node name="EnvironmentSky" parent="." instance=ExtResource("17_nmxfg")]
+layout_mode = 1
+
+[node name="ViewportGoat" parent="." instance=ExtResource("15_21g1j")]
+layout_mode = 1
+
+[node name="ViewportChanges" parent="." instance=ExtResource("16_k5iqc")]
+layout_mode = 1
+
+[node name="ViewportBug" parent="." instance=ExtResource("17_n8x6b")]
+layout_mode = 1
+
+[node name="ViewportInventory" parent="." instance=ExtResource("18_klck6")]
+layout_mode = 1
+
+[node name="Tweens" parent="." instance=ExtResource("19_kkr5v")]
+layout_mode = 1
+
+[node name="BlurSettingsGoat" parent="." instance=ExtResource("6_jsgnn")]
+layout_mode = 1
+
+[node name="BlurEditor" parent="." instance=ExtResource("7_fmjjd")]
+layout_mode = 1
+
+[node name="BlurHelp" parent="." instance=ExtResource("8_b3ks7")]
+layout_mode = 1
+
+[node name="BlurSettingsDemo" parent="." instance=ExtResource("9_vcex8")]
+layout_mode = 1
+
+[node name="Mesh" parent="." instance=ExtResource("24_m08nv")]
+layout_mode = 1
+
+[node name="Summary" parent="." instance=ExtResource("30_1eeq0")]
+layout_mode = 1
+
+[node name="ThankYou" parent="." instance=ExtResource("31_tslv8")]
+layout_mode = 1

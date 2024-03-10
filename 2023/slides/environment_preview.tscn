@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcdaifbggnu3p"]
+
+[ext_resource type="PackedScene" uid="uid://8s1do26q3wwt" path="res://templates/slide.tscn" id="1_36fr2"]
+[ext_resource type="PackedScene" uid="uid://cjwgxkbh5fg81" path="res://templates/background_godot_3.tscn" id="2_kou2c"]
+[ext_resource type="Texture2D" uid="uid://c5s2illp85gdx" path="res://slides/media/env_v3_preview.png" id="2_ucgn5"]
+[ext_resource type="Texture2D" uid="uid://c5exvcaa1fglt" path="res://slides/media/env_v4_preview.png" id="5_1022s"]
+[ext_resource type="PackedScene" uid="uid://dwtwi6xvh2psr" path="res://templates/arrow.tscn" id="5_ibpja"]
+[ext_resource type="PackedScene" uid="uid://dhb5fkuo3rhj4" path="res://templates/background_godot_4.tscn" id="6_afm3b"]
+
+[node name="EnvironmentPreview" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slide" parent="." instance=ExtResource("1_36fr2")]
+layout_mode = 1
+
+[node name="Label" parent="Slide/VBoxContainer/TopBar" index="0"]
+text = "Environment"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Slide/VBoxContainer/Contents" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="Slide/VBoxContainer/Contents/HBoxContainer"]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+texture = ExtResource("2_ucgn5")
+expand_mode = 1
+
+[node name="BackgroundGodot3" parent="Slide/VBoxContainer/Contents/HBoxContainer/TextureRect" instance=ExtResource("2_kou2c")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Arrow" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("5_ibpja")]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Slide/VBoxContainer/Contents/HBoxContainer"]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+texture = ExtResource("5_1022s")
+expand_mode = 1
+
+[node name="BackgroundGodot4" parent="Slide/VBoxContainer/Contents/HBoxContainer/TextureRect2" instance=ExtResource("6_afm3b")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[editable path="Slide"]

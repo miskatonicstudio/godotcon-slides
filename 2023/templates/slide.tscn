@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://8s1do26q3wwt"]
+
+[ext_resource type="PackedScene" uid="uid://dfh83oxmvg72u" path="res://templates/label.tscn" id="1_qhjh3"]
+
+[sub_resource type="Gradient" id="Gradient_s4kj2"]
+colors = PackedColorArray(1, 0.929412, 0.631373, 1, 0.372549, 0.827451, 0.905882, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kfdxk"]
+gradient = SubResource("Gradient_s4kj2")
+
+[node name="Slide" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = SubResource("GradientTexture2D_kfdxk")
+
+[node name="Label" parent="VBoxContainer/TopBar" instance=ExtResource("1_qhjh3")]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_right = 0.5
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.129458, 0.148989, 0.180255, 1)
+theme_override_constants/shadow_outline_size = 8
+text = "Text"
+
+[node name="Contents" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3

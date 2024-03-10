@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhb5fkuo3rhj4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aaqbx"]
+bg_color = Color(0.372549, 0.827451, 0.905882, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.372549, 0.827451, 0.905882, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[node name="BackgroundGodot4" type="Panel"]
+show_behind_parent = true
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_aaqbx")

@@ -1,0 +1,269 @@
+[gd_scene load_steps=6 format=3 uid="uid://b87dx7bonf3vj"]
+
+[ext_resource type="PackedScene" uid="uid://8s1do26q3wwt" path="res://templates/slide.tscn" id="1_xbuis"]
+[ext_resource type="PackedScene" uid="uid://cjwgxkbh5fg81" path="res://templates/background_godot_3.tscn" id="2_ou1lt"]
+[ext_resource type="PackedScene" uid="uid://dwtwi6xvh2psr" path="res://templates/arrow.tscn" id="3_7p8y6"]
+[ext_resource type="PackedScene" uid="uid://dhb5fkuo3rhj4" path="res://templates/background_godot_4.tscn" id="4_ulo4m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qvk7"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.113725, 0.133333, 0.160784, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="NewNames" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slide" parent="." instance=ExtResource("1_xbuis")]
+layout_mode = 1
+
+[node name="Label" parent="Slide/VBoxContainer/TopBar" index="0"]
+text = "New names"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Slide/VBoxContainer/Contents" index="0"]
+custom_minimum_size = Vector2(0, 700)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.5
+offset_top = -55.0
+offset_right = 187.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Old" type="Panel" parent="Slide/VBoxContainer/Contents/HBoxContainer"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0qvk7")
+
+[node name="BackgroundGodot3" parent="Slide/VBoxContainer/Contents/HBoxContainer/Old" instance=ExtResource("2_ou1lt")]
+custom_minimum_size = Vector2(523.33, 678.785)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Old" type="VBoxContainer" parent="Slide/VBoxContainer/Contents/HBoxContainer/Old"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = -339.0
+offset_right = 255.0
+offset_bottom = 339.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/Old/Old"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• Spatial"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/Old/Old"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• SpotLight"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/Old/Old"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• MeshInstance"
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/Old/Old"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• SpatialMaterial"
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/Old/Old"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• File"
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/Old/Old"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• translation"
+vertical_alignment = 1
+
+[node name="Label11" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/Old/Old"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• empty()"
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/Old/Old"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• input(local_event)"
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/Old/Old"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• ss_reflections_enabled"
+vertical_alignment = 1
+
+[node name="Label10" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/Old/Old"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• cast_to"
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/Old/Old"]
+custom_minimum_size = Vector2(510, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "   ..."
+vertical_alignment = 1
+
+[node name="Arrow" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("3_7p8y6")]
+layout_mode = 2
+
+[node name="New" type="Panel" parent="Slide/VBoxContainer/Contents/HBoxContainer"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0qvk7")
+
+[node name="BackgroundGodot4" parent="Slide/VBoxContainer/Contents/HBoxContainer/New" instance=ExtResource("4_ulo4m")]
+custom_minimum_size = Vector2(400, 600)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="New" type="VBoxContainer" parent="Slide/VBoxContainer/Contents/HBoxContainer/New"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = -339.0
+offset_right = 255.0
+offset_bottom = 339.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/New/New"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• Node3D"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/New/New"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• SpotLight3D"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/New/New"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• MeshInstance3D"
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/New/New"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• StandardMaterial3D"
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/New/New"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• FileAccess"
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/New/New"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• position"
+vertical_alignment = 1
+
+[node name="Label11" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/New/New"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• is_empty()"
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/New/New"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• push_input(event)"
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/New/New"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• ssr_enabled"
+vertical_alignment = 1
+
+[node name="Label10" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/New/New"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "• target_position"
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="Slide/VBoxContainer/Contents/HBoxContainer/New/New"]
+custom_minimum_size = Vector2(510, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.811765, 0.823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "   ..."
+vertical_alignment = 1
+
+[editable path="Slide"]

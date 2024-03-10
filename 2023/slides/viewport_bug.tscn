@@ -1,0 +1,253 @@
+[gd_scene load_steps=19 format=3 uid="uid://c83swkfdiwif2"]
+
+[ext_resource type="Script" path="res://slides/viewport_bug.gd" id="1_y14q1"]
+[ext_resource type="PackedScene" uid="uid://8s1do26q3wwt" path="res://templates/slide.tscn" id="1_y73l0"]
+[ext_resource type="PackedScene" uid="uid://dhb5fkuo3rhj4" path="res://templates/background_godot_4.tscn" id="2_6r2sd"]
+[ext_resource type="Texture2D" uid="uid://bb0exb0nwsog0" path="res://slides/media/viewport_transparent_on.png" id="3_kka48"]
+[ext_resource type="PackedScene" uid="uid://dwtwi6xvh2psr" path="res://templates/arrow.tscn" id="4_8cwmo"]
+[ext_resource type="Texture2D" uid="uid://bsita67784o3q" path="res://slides/media/viewport_reflections_on.png" id="4_kiw7s"]
+[ext_resource type="Texture2D" uid="uid://0bttj2lir1qa" path="res://slides/media/viewport_transparent_off.png" id="6_a8eis"]
+[ext_resource type="Texture2D" uid="uid://ehlqcw3axiac" path="res://slides/media/viewport_reflections_off.png" id="7_hhhw3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4rjdv"]
+
+[sub_resource type="Sky" id="Sky_y7tup"]
+sky_material = SubResource("ProceduralSkyMaterial_4rjdv")
+
+[sub_resource type="Environment" id="Environment_cuisg"]
+background_mode = 2
+sky = SubResource("Sky_y7tup")
+ssr_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ybemy"]
+albedo_color = Color(0, 1, 0, 1)
+roughness = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_i5f6n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4krx"]
+albedo_color = Color(1, 0, 1, 1)
+emission_enabled = true
+emission = Color(1, 0, 1, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_7px68"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="Animation" id="Animation_2frc3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewport:transparent_bg")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewport/Node3D/WorldEnvironment:environment:ssr_enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BackgroundGodot4/VBoxContainer/TextureRect:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_kka48")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../BackgroundGodot4/VBoxContainer/TextureRect2:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_kiw7s")]
+}
+
+[sub_resource type="Animation" id="Animation_56rqy"]
+resource_name = "viewport_settings"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewport:transparent_bg")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewport/Node3D/WorldEnvironment:environment:ssr_enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BackgroundGodot4/VBoxContainer/TextureRect:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_a8eis"), ExtResource("3_kka48"), ExtResource("3_kka48")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../BackgroundGodot4/VBoxContainer/TextureRect2:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_hhhw3"), ExtResource("4_kiw7s"), ExtResource("7_hhhw3"), ExtResource("4_kiw7s")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dx8ur"]
+_data = {
+"RESET": SubResource("Animation_2frc3"),
+"viewport_settings": SubResource("Animation_56rqy")
+}
+
+[node name="ViewportBug" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y14q1")
+
+[node name="Slide" parent="." instance=ExtResource("1_y73l0")]
+layout_mode = 1
+
+[node name="Label" parent="Slide/VBoxContainer/TopBar" index="0"]
+text = "Viewport"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Slide/VBoxContainer/Contents" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -489.5
+offset_top = -256.0
+offset_right = 489.5
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="BackgroundGodot4" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("2_6r2sd")]
+custom_minimum_size = Vector2(300, 512)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = -215.0
+offset_right = 127.0
+offset_bottom = 215.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot4/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+texture = ExtResource("3_kka48")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Slide/VBoxContainer/Contents/HBoxContainer/BackgroundGodot4/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+texture = ExtResource("4_kiw7s")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Arrow" parent="Slide/VBoxContainer/Contents/HBoxContainer" instance=ExtResource("4_8cwmo")]
+layout_mode = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Slide/VBoxContainer/Contents/HBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Slide/VBoxContainer/Contents/HBoxContainer/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="Slide/VBoxContainer/Contents/HBoxContainer/SubViewportContainer/SubViewport"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Slide/VBoxContainer/Contents/HBoxContainer/SubViewportContainer/SubViewport/Node3D"]
+environment = SubResource("Environment_cuisg")
+
+[node name="Camera3D" type="Camera3D" parent="Slide/VBoxContainer/Contents/HBoxContainer/SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Slide/VBoxContainer/Contents/HBoxContainer/SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(0.448562, -0.11228, 0.886671, 0.606844, -0.690075, -0.394383, 0.65615, 0.714976, -0.241405, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ybemy")
+mesh = SubResource("SphereMesh_i5f6n")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Slide/VBoxContainer/Contents/HBoxContainer/SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0.313, -0.389, 0.315)
+material_override = SubResource("StandardMaterial3D_o4krx")
+mesh = SubResource("BoxMesh_7px68")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Slide/VBoxContainer/Contents/HBoxContainer/SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -0.392, -0.294, 0.365)
+material_override = SubResource("StandardMaterial3D_o4krx")
+mesh = SubResource("BoxMesh_7px68")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slide/VBoxContainer/Contents/HBoxContainer/SubViewportContainer"]
+autoplay = "viewport_settings"
+libraries = {
+"": SubResource("AnimationLibrary_dx8ur")
+}
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+
+[editable path="Slide"]

@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=3 uid="uid://dwllycfhr3xst"]
+
+[ext_resource type="PackedScene" uid="uid://8s1do26q3wwt" path="res://templates/slide.tscn" id="1_4ix21"]
+[ext_resource type="Texture2D" uid="uid://de36kad0q2ixp" path="res://slides/media/intrepid.jpg" id="2_c4utw"]
+[ext_resource type="Texture2D" uid="uid://cs7edws1kk4mx" path="res://slides/media/arboretum.jpg" id="3_gui1k"]
+[ext_resource type="Texture2D" uid="uid://c6duxn1ar7sgc" path="res://slides/media/array_modifier.png" id="4_b736u"]
+[ext_resource type="Texture2D" uid="uid://cuq0hgleuegcd" path="res://slides/media/shaders_small.jpg" id="5_6k5ou"]
+[ext_resource type="Texture2D" uid="uid://bi88baw3qg0ho" path="res://slides/media/logo_without_frame_white.png" id="6_pcnj5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgjyi"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tsk0w"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 12
+
+[node name="MiskatonicStudio" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slide" parent="." instance=ExtResource("1_4ix21")]
+layout_mode = 1
+
+[node name="Label" parent="Slide/VBoxContainer/TopBar" index="0"]
+text = "Miskatonic Studio"
+
+[node name="GridContainer" type="GridContainer" parent="Slide/VBoxContainer/Contents" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -805.0
+offset_top = -452.5
+offset_right = 805.0
+offset_bottom = 452.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 2
+
+[node name="TextureRect1" type="TextureRect" parent="Slide/VBoxContainer/Contents/GridContainer"]
+custom_minimum_size = Vector2(800, 450)
+layout_mode = 2
+texture = ExtResource("2_c4utw")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="Slide/VBoxContainer/Contents/GridContainer"]
+custom_minimum_size = Vector2(800, 400)
+layout_mode = 2
+texture = ExtResource("3_gui1k")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="TextureRect3" type="TextureRect" parent="Slide/VBoxContainer/Contents/GridContainer"]
+custom_minimum_size = Vector2(800, 450)
+layout_mode = 2
+texture = ExtResource("4_b736u")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="TextureRect4" type="TextureRect" parent="Slide/VBoxContainer/Contents/GridContainer"]
+custom_minimum_size = Vector2(800, 400)
+layout_mode = 2
+texture = ExtResource("5_6k5ou")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Panel" type="Panel" parent="Slide/VBoxContainer/Contents" index="1"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qgjyi")
+
+[node name="Panel" type="Panel" parent="Slide/VBoxContainer/Contents/Panel"]
+clip_children = 2
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tsk0w")
+
+[node name="TextureRect" type="TextureRect" parent="Slide/VBoxContainer/Contents/Panel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_pcnj5")
+expand_mode = 1
+stretch_mode = 4
+
+[editable path="Slide"]

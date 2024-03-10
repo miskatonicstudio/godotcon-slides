@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdkliklc6dm0g"]
+
+[ext_resource type="PackedScene" uid="uid://8s1do26q3wwt" path="res://templates/slide.tscn" id="1_ovwbs"]
+[ext_resource type="PackedScene" uid="uid://dhb5fkuo3rhj4" path="res://templates/background_godot_4.tscn" id="2_738f0"]
+[ext_resource type="Texture2D" uid="uid://h4rngyjhbs4p" path="res://slides/media/mesh_issue_2.png" id="3_rw4gx"]
+[ext_resource type="Texture2D" uid="uid://c2q6h6ygqgegi" path="res://slides/media/mesh_issue_3.png" id="4_2jtqj"]
+[ext_resource type="Texture2D" uid="uid://b381tcu13a6w2" path="res://slides/media/mesh_issue_4.png" id="5_4bvt7"]
+
+[node name="Mesh" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slide" parent="." instance=ExtResource("1_ovwbs")]
+layout_mode = 1
+
+[node name="Label" parent="Slide/VBoxContainer/TopBar" index="0"]
+text = "ArrayMesh"
+
+[node name="BackgroundGodot4" parent="Slide/VBoxContainer/Contents" index="0" instance=ExtResource("2_738f0")]
+custom_minimum_size = Vector2(1670, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -835.0
+offset_top = -300.0
+offset_right = 835.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Slide/VBoxContainer/Contents/BackgroundGodot4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -835.0
+offset_top = -300.0
+offset_right = 835.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+columns = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Slide/VBoxContainer/Contents/BackgroundGodot4/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(550, 600)
+layout_mode = 2
+texture = ExtResource("3_rw4gx")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="Slide/VBoxContainer/Contents/BackgroundGodot4/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(550, 600)
+layout_mode = 2
+texture = ExtResource("4_2jtqj")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="Slide/VBoxContainer/Contents/BackgroundGodot4/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(550, 600)
+layout_mode = 2
+texture = ExtResource("5_4bvt7")
+expand_mode = 1
+stretch_mode = 3
+
+[editable path="Slide"]
